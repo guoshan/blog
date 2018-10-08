@@ -327,12 +327,24 @@
                 
               
 
-              <time title="创建时间：2018-09-29 11:16:58 / 修改时间：11:51:41" itemprop="dateCreated datePublished" datetime="2018-09-29T11:16:58+08:00">2018-09-29</time>
+              <time title="创建时间：2018-09-29 11:16:58" itemprop="dateCreated datePublished" datetime="2018-09-29T11:16:58+08:00">2018-09-29</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-08 11:24:24" itemprop="dateModified" datetime="2018-10-08T11:24:24+08:00">2018-10-08</time>
               
             
           </span>
@@ -367,67 +379,69 @@
       
         
           
-            <h3 id="html基础"><a href="#html基础" class="headerlink" title="html基础"></a>html基础</h3><h3 id="CSS基础-css3"><a href="#CSS基础-css3" class="headerlink" title="CSS基础 css3"></a>CSS基础 css3</h3><pre><code>   盒子模型
-     BFC
-     css3动画
-     flex布局
-        flex：auto／1/2
-        Flex-wrap: nowrap/wrap 一行或者多行
-sass
+            <h3 id="html基础"><a href="#html基础" class="headerlink" title="html基础"></a>html基础</h3><h3 id="CSS基础-css3"><a href="#CSS基础-css3" class="headerlink" title="CSS基础 css3"></a>CSS基础 css3</h3><pre><code>盒子模型
+BFC
+css3动画
+flex布局
+    flex：auto／1/2
+    Flex-wrap: nowrap/wrap 一行或者多行
+sass/less
 </code></pre><h3 id="js基础"><a href="#js基础" class="headerlink" title="js基础"></a>js基础</h3><pre><code>数组
 函数
-   构造函数
+构造函数
 闭包
- 作用域
-</code></pre><h2 id="es6"><a href="#es6" class="headerlink" title="es6"></a>es6</h2><pre><code>promise
+作用域
+</code></pre><h3 id="es6"><a href="#es6" class="headerlink" title="es6"></a>es6</h3><pre><code>promise
 箭头函数
+let const
+async
 </code></pre><h3 id="自动化构建项目工具的应用"><a href="#自动化构建项目工具的应用" class="headerlink" title="自动化构建项目工具的应用"></a>自动化构建项目工具的应用</h3><pre><code>webpack
-</code></pre><h3 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h3><h3 id="计算机网络知识点"><a href="#计算机网络知识点" class="headerlink" title="计算机网络知识点"></a>计算机网络知识点</h3><pre><code> 跨域解决方案
- Http网络协议
-     Http请求头有哪些
-         Content-type
+</code></pre><h3 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h3><h3 id="计算机网络知识点"><a href="#计算机网络知识点" class="headerlink" title="计算机网络知识点"></a>计算机网络知识点</h3><pre><code>跨域解决方案
+Http网络协议
+  Http请求头有哪些
+      Content-type
 
 get和post的区别：
-</code></pre><p><a href="https://mp.weixin.qq.com/s" target="_blank" rel="noopener">https://mp.weixin.qq.com/s</a>?                 __biz=MzI3NzIzMzg3Mw==&amp;mid=100000054&amp;idx=1&amp;sn=71f6c214f3833d9ca20b9f7dcd9d33e4#rd</p>
-<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><pre><code>冒泡排序
-      当前位的值和后一位的值进行循环比较  前一位比后一位大（小）就交换它们的位置 一次循环
-      双次循环实现
-  快排
-      循环每次将最大或者最小的元素放在第一位 然后继续
-</code></pre><h3 id="前端性能优化"><a href="#前端性能优化" class="headerlink" title="前端性能优化"></a>前端性能优化</h3><pre><code> 预加载（？？？），资源合并、[x]按需加载（vue chunk文件）
- 压缩文件gzip
+   [参考：](https://mp.weixin.qq.com/s?__biz=MzI3NzIzMzg3Mw==&amp;mid=100000054&amp;idx=1&amp;sn=71f6c214f3833d9ca20b9f7dcd9d33e4#rd)
+</code></pre><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><pre><code>冒泡排序
+    当前位的值和后一位的值进行循环比较  前一位比后一位大（小）就交换它们的位置 一次循环
+    双次循环实现
+快排
+    循环每次将最大或者最小的元素放在第一位 然后继续
+</code></pre><h3 id="前端性能优化"><a href="#前端性能优化" class="headerlink" title="前端性能优化"></a>前端性能优化</h3><pre><code>预加载（？？？），资源合并、[x]按需加载（vue chunk文件）
+压缩文件gzip
     浏览器请求头设置accept-encoding:gzip
-     服务器返回headers返回包含content-encoding:gzip
+    服务器返回headers返回包含content-encoding:gzip
 资源压缩合并，减少http请求
-     例如雪碧图 js、css合并
- 非核心代码异步加载——&gt;异步加载的方式——&gt;异步加载的区别
-       方式：1）动态脚本加载 &lt;script&gt;标签
-                  2）defer  (&lt;script&gt;标签上加defer或者async)
-                         在HTML解析完之后才会执行，如果多个，按照加载的顺序依次执行
-                  3）async
-                         在加载完之后立即执行，如果是多个，执行顺序和加载顺序无关
- 利用浏览器缓存——&gt;缓存分类——&gt;缓存的原理
-                   1）强缓存
-                         Expires Expires：Thu,21 Jan 2017…. 过期时间
-                         Cache-Control Cache-Control :max-age=3600(相对时间)
-                   2)协商缓存
-                         Last-Modified If-Modified-Since Last-Modified:Web,26 Jan…..
-                         Etag If-None-Match
- 使用CDN
-
- 预解析DNS
-     &lt;meta http-equiv=“x-dns-prefetch-control” content=“no”&gt;
-     &lt;meta rel=“dns-prefetch” href=“//host_name_to_prefetch.com”&gt;
+    例如雪碧图 js、css合并
+非核心代码异步加载——&gt;异步加载的方式——&gt;异步加载的区别
+ 方式：1）动态脚本加载 &lt;script&gt;标签
+    2）defer  (&lt;script&gt;标签上加defer或者async)
+      在HTML解析完之后才会执行，如果多个，按照加载的顺序依次执行
+    3）async
+      在加载完之后立即执行，如果是多个，执行顺序和加载顺序无关
+利用浏览器缓存——&gt;缓存分类——&gt;缓存的原理
+    1）强缓存
+      Expires Expires：Thu,21 Jan 2017…. 过期时间
+      Cache-Control Cache-Control :max-age=3600(相对时间)
+    2)协商缓存
+      Last-Modified If-Modified-Since Last-Modified:Web,26 Jan…..
+      Etag If-None-Match
+使用CDN
+    静态资源分地区放在不同的服务器
+预解析DNS
+    &lt;meta http-equiv=“x-dns-prefetch-control” content=“no”&gt;
+    &lt;meta rel=“dns-prefetch” href=“//host_name_to_prefetch.com”&gt;
 </code></pre><h3 id="设计模式-gt-观察者模式"><a href="#设计模式-gt-观察者模式" class="headerlink" title="设计模式 -&gt; 观察者模式"></a>设计模式 -&gt; 观察者模式</h3><h3 id="hybird开发相关知识点"><a href="#hybird开发相关知识点" class="headerlink" title="hybird开发相关知识点"></a>hybird开发相关知识点</h3><h3 id="网页渲染机制"><a href="#网页渲染机制" class="headerlink" title="网页渲染机制"></a>网页渲染机制</h3><pre><code>渲染机制
     什么是DOCTYPE及作用
         DTD(document type definition 文档类型定义)一系列的语法规则，告诉浏览器文档是什么类型
         DOCTYPE是用来声明文档类型和DTD规范的
     浏览器渲染过程
-          HTML转成dom tree
-            CSS转换成 style rules tree
-            将dom tree和style rules tree转换成render tree
-            layout计算位置 再绘制painting
-          DOM
+        HTML转成dom tree
+        CSS转换成 style rules tree
+        将dom tree和style rules tree转换成render tree
+        layout计算位置 再绘制painting
+        DOM
     重排reflow／
         增加删除修改dom节点的时候会reflow或者repaint
         移动dom位置的时候 或者加动画
@@ -438,19 +452,19 @@ get和post的区别：
         dom／css改动的时候
     布局layout
 Js运行机制
-        单线程：同一时间只能做一件事 js是从上向下执行。 同步任务／异步任务
-        同步任务优先于异步任务
-        console.log(1);//同步任务
-        setTimeout(function(){//异步执行 挂起
-            console.log(2)
-        },0);
-        console.log(3);//同步任务
-        输出：1 3 2
+    单线程：同一时间只能做一件事 js是从上向下执行。 同步任务／异步任务
+    同步任务优先于异步任务
+    console.log(1);//同步任务
+    setTimeout(function(){//异步执行 挂起
+        console.log(2)
+    },0);
+    console.log(3);//同步任务
+    输出：1 3 2
 
 页面性能
 
 错误监控
-</code></pre><h3 id="正则表达式基础了解"><a href="#正则表达式基础了解" class="headerlink" title="正则表达式基础了解"></a>正则表达式基础了解</h3><h3 id="浏览器缓存机制"><a href="#浏览器缓存机制" class="headerlink" title="浏览器缓存机制"></a>浏览器缓存机制</h3><h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><h2 id="vue周期"><a href="#vue周期" class="headerlink" title="vue周期"></a>vue周期</h2><pre><code>Create 
+</code></pre><h3 id="正则表达式基础了解"><a href="#正则表达式基础了解" class="headerlink" title="正则表达式基础了解"></a>正则表达式基础了解</h3><h3 id="浏览器缓存机制"><a href="#浏览器缓存机制" class="headerlink" title="浏览器缓存机制"></a>浏览器缓存机制</h3><h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><h5 id="vue周期"><a href="#vue周期" class="headerlink" title="vue周期"></a>vue周期</h5><pre><code>Create 
     创建实例 data数据对象生成 
     Mounted 
         Vue实例挂载完成，渲染成功
@@ -458,27 +472,35 @@ Js运行机制
         数据变化时触动updateed方法
     Distory
         数据的变化将不再监测  dom结构依然存在
-</code></pre><h2 id="mvvm模式的理解"><a href="#mvvm模式的理解" class="headerlink" title="mvvm模式的理解"></a>mvvm模式的理解</h2><pre><code>model view viewModel 通过双向数据绑定viewModel把view和model链接起来  数据的更新自动的 不需要人为的去干涉更新
+</code></pre><h5 id="mvvm模式的理解"><a href="#mvvm模式的理解" class="headerlink" title="mvvm模式的理解"></a>mvvm模式的理解</h5><pre><code>model view viewModel 通过双向数据绑定viewModel把view和model链接起来  数据的更新自动的 不需要人为的去干涉更新
 vm层 vue做相应处理 
-</code></pre><h2 id="watch和computed的区别"><a href="#watch和computed的区别" class="headerlink" title="watch和computed的区别"></a>watch和computed的区别</h2><h2 id="组件之间的传值"><a href="#组件之间的传值" class="headerlink" title="组件之间的传值"></a>组件之间的传值</h2><pre><code>通过props父组件单向传值
+</code></pre><h5 id="watch和computed的区别"><a href="#watch和computed的区别" class="headerlink" title="watch和computed的区别"></a>watch和computed的区别</h5><h5 id="组件之间的传值"><a href="#组件之间的传值" class="headerlink" title="组件之间的传值"></a>组件之间的传值</h5><pre><code>通过props父组件单向传值
 子组件向父组件传值
-            $.emit()方法
-</code></pre><h2 id="vue开发中常见问题及解决方法"><a href="#vue开发中常见问题及解决方法" class="headerlink" title="vue开发中常见问题及解决方法"></a>vue开发中常见问题及解决方法</h2><pre><code>props只能从父组件单向传值给子组件 子组件需要改变父组件的值可以将数据设置为对象或者数组 因为引用类型的改变不会导致错误 但是官方不推荐这么做
-</code></pre><h2 id="vue源码（看不错的博客）"><a href="#vue源码（看不错的博客）" class="headerlink" title="vue源码（看不错的博客）"></a>vue源码（看不错的博客）</h2><p>Vue-router 对应的监听方法</p>
-<h2 id="Q：请简要概述vue的生命周期有哪些"><a href="#Q：请简要概述vue的生命周期有哪些" class="headerlink" title="Q：请简要概述vue的生命周期有哪些"></a>Q：请简要概述vue的生命周期有哪些</h2><h2 id="Q：写出vue中父子组件如何通信"><a href="#Q：写出vue中父子组件如何通信" class="headerlink" title="Q：写出vue中父子组件如何通信"></a>Q：写出vue中父子组件如何通信</h2><h2 id="Q：请输出vue-router的导航守卫（或者函数钩子）有哪些？这些函数中有哪些参数"><a href="#Q：请输出vue-router的导航守卫（或者函数钩子）有哪些？这些函数中有哪些参数" class="headerlink" title="Q：请输出vue-router的导航守卫（或者函数钩子）有哪些？这些函数中有哪些参数"></a>Q：请输出vue-router的导航守卫（或者函数钩子）有哪些？这些函数中有哪些参数</h2><pre><code>    router.beforeEach 全局守卫
+   $.emit()方法
+平行组件之间的传值用vuex
+</code></pre><h5 id="vue开发中常见问题及解决方法"><a href="#vue开发中常见问题及解决方法" class="headerlink" title="vue开发中常见问题及解决方法"></a>vue开发中常见问题及解决方法</h5><pre><code>props只能从父组件单向传值给子组件 子组件需要改变父组件的值可以将数据设置为对象或者数组 因为引用类型的改变不会导致错误 但是官方不推荐这么做
+</code></pre><h5 id="vue源码（看不错的博客）"><a href="#vue源码（看不错的博客）" class="headerlink" title="vue源码（看不错的博客）"></a>vue源码（看不错的博客）</h5><h5 id="Q：请简要概述vue的生命周期有哪些"><a href="#Q：请简要概述vue的生命周期有哪些" class="headerlink" title="Q：请简要概述vue的生命周期有哪些"></a>Q：请简要概述vue的生命周期有哪些</h5><h5 id="Q：写出vue中父子组件如何通信"><a href="#Q：写出vue中父子组件如何通信" class="headerlink" title="Q：写出vue中父子组件如何通信"></a>Q：写出vue中父子组件如何通信</h5><h5 id="Q：请输出vue-router的导航守卫（或者函数钩子）有哪些？这些函数中有哪些参数"><a href="#Q：请输出vue-router的导航守卫（或者函数钩子）有哪些？这些函数中有哪些参数" class="headerlink" title="Q：请输出vue-router的导航守卫（或者函数钩子）有哪些？这些函数中有哪些参数"></a>Q：请输出vue-router的导航守卫（或者函数钩子）有哪些？这些函数中有哪些参数</h5><pre><code>    router.beforeEach 全局守卫
 afterEach
 监听路由 父组件里面 watch:{‘$route’}
-</code></pre><h2 id="Q：在vuex中，要想state中存入数据的步骤是什么"><a href="#Q：在vuex中，要想state中存入数据的步骤是什么" class="headerlink" title="Q：在vuex中，要想state中存入数据的步骤是什么"></a>Q：在vuex中，要想state中存入数据的步骤是什么</h2><h2 id="Q：Vue的get、set，里面的坑以及如何解决？"><a href="#Q：Vue的get、set，里面的坑以及如何解决？" class="headerlink" title="Q：Vue的get、set，里面的坑以及如何解决？"></a>Q：Vue的get、set，里面的坑以及如何解决？</h2><h2 id="Q：Vue的批量更新？"><a href="#Q：Vue的批量更新？" class="headerlink" title="Q：Vue的批量更新？"></a>Q：Vue的批量更新？</h2><h2 id="Q：batchupdate的策略是什么？"><a href="#Q：batchupdate的策略是什么？" class="headerlink" title="Q：batchupdate的策略是什么？"></a>Q：batchupdate的策略是什么？</h2><h2 id="Q：装饰器风格的vue-util库怎么实现？"><a href="#Q：装饰器风格的vue-util库怎么实现？" class="headerlink" title="Q：装饰器风格的vue util库怎么实现？"></a>Q：装饰器风格的vue util库怎么实现？</h2><h2 id="Q：Vue的inject和provide是什么？"><a href="#Q：Vue的inject和provide是什么？" class="headerlink" title="Q：Vue的inject和provide是什么？"></a>Q：Vue的inject和provide是什么？</h2><h2 id="Q：怎么利用Vue来实现高阶组件，slot怎么办"><a href="#Q：怎么利用Vue来实现高阶组件，slot怎么办" class="headerlink" title="Q：怎么利用Vue来实现高阶组件，slot怎么办"></a>Q：怎么利用Vue来实现高阶组件，slot怎么办</h2><h2 id="Q：依赖收集问题"><a href="#Q：依赖收集问题" class="headerlink" title="Q：依赖收集问题"></a>Q：依赖收集问题</h2><ul>
-<li>Vue的所有属性都是Observable的</li>
-<li>@computed所能自我计算的，只有他所监控的（autorun）<h2 id="Q：Vue模块加载的失败处理（白屏等情况）"><a href="#Q：Vue模块加载的失败处理（白屏等情况）" class="headerlink" title="Q：Vue模块加载的失败处理（白屏等情况）"></a>Q：Vue模块加载的失败处理（白屏等情况）</h2><h2 id="Q：Vue双向绑定的实现"><a href="#Q：Vue双向绑定的实现" class="headerlink" title="Q：Vue双向绑定的实现"></a>Q：Vue双向绑定的实现</h2><h2 id="Q：Vue-diff实现（1-0，2-0），与-react-diff的区别"><a href="#Q：Vue-diff实现（1-0，2-0），与-react-diff的区别" class="headerlink" title="Q：Vue diff实现（1.0，2.0），与 react diff的区别"></a>Q：Vue diff实现（1.0，2.0），与 react diff的区别</h2><h2 id="Q：Vue如何实现的一个插件"><a href="#Q：Vue如何实现的一个插件" class="headerlink" title="Q：Vue如何实现的一个插件"></a>Q：Vue如何实现的一个插件</h2><h2 id="Q：如果有多个插件怎么挂载方式便于开发"><a href="#Q：如果有多个插件怎么挂载方式便于开发" class="headerlink" title="Q：如果有多个插件怎么挂载方式便于开发"></a>Q：如果有多个插件怎么挂载方式便于开发</h2><h2 id="Q：如何封装一个component，在不使用template的情况下输出一下dom结构（vue）"><a href="#Q：如何封装一个component，在不使用template的情况下输出一下dom结构（vue）" class="headerlink" title="Q：如何封装一个component，在不使用template的情况下输出一下dom结构（vue）"></a>Q：如何封装一个component，在不使用template的情况下输出一下dom结构（vue）</h2></li>
-</ul>
-<h2 id="Vue动画组件"><a href="#Vue动画组件" class="headerlink" title="Vue动画组件"></a>Vue动画组件</h2><h3 id="Jquery特点和源码（找总结不错的博客看）"><a href="#Jquery特点和源码（找总结不错的博客看）" class="headerlink" title="Jquery特点和源码（找总结不错的博客看）"></a>Jquery特点和源码（找总结不错的博客看）</h3><h2 id="核心架构"><a href="#核心架构" class="headerlink" title="核心架构"></a>核心架构</h2><pre><code>事件委托
-     $(document).on(&quot;click&quot;, &quot;td&quot;, function(){
-</code></pre><p>　　   　$(this).toggleClass(“click”);<br>　　})<br>    利用事件冒泡 做事件委托 不需要每个子元素都调用<br>      插件机制<br>      优点<br>            选择器id选择器的性能最高<br>            伪类选择器的性能最差<br>            链式调用速度快于非链式调用<br>        优化<br>            循环时减少对dom的操作<br>            e.g.:<br>                将dom对象定义在循环外面  或者需要插入的内容用变量存储在添加到dom中<br>            Dom对象的缓存</p>
-<h3 id="小程序web-view和网页之间的通信怎么做？token怎么存储"><a href="#小程序web-view和网页之间的通信怎么做？token怎么存储" class="headerlink" title="小程序web-view和网页之间的通信怎么做？token怎么存储"></a>小程序web-view和网页之间的通信怎么做？token怎么存储</h3><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><h2 id="Jd描述分析"><a href="#Jd描述分析" class="headerlink" title="Jd描述分析"></a>Jd描述分析</h2><h2 id="业务分析或实战模拟"><a href="#业务分析或实战模拟" class="headerlink" title="业务分析或实战模拟"></a>业务分析或实战模拟</h2><h2 id="技术栈准备"><a href="#技术栈准备" class="headerlink" title="技术栈准备"></a>技术栈准备</h2><pre><code>Jquery
+</code></pre><h5 id="Q：在vuex中，要想state中存入数据的步骤是什么"><a href="#Q：在vuex中，要想state中存入数据的步骤是什么" class="headerlink" title="Q：在vuex中，要想state中存入数据的步骤是什么"></a>Q：在vuex中，要想state中存入数据的步骤是什么</h5><h5 id="Q：Vue的get、set，里面的坑以及如何解决？"><a href="#Q：Vue的get、set，里面的坑以及如何解决？" class="headerlink" title="Q：Vue的get、set，里面的坑以及如何解决？"></a>Q：Vue的get、set，里面的坑以及如何解决？</h5><h5 id="Q：Vue的批量更新？"><a href="#Q：Vue的批量更新？" class="headerlink" title="Q：Vue的批量更新？"></a>Q：Vue的批量更新？</h5><h5 id="Q：batchupdate的策略是什么？"><a href="#Q：batchupdate的策略是什么？" class="headerlink" title="Q：batchupdate的策略是什么？"></a>Q：batchupdate的策略是什么？</h5><h5 id="Q：装饰器风格的vue-util库怎么实现？"><a href="#Q：装饰器风格的vue-util库怎么实现？" class="headerlink" title="Q：装饰器风格的vue util库怎么实现？"></a>Q：装饰器风格的vue util库怎么实现？</h5><h5 id="Q：Vue的inject和provide是什么？"><a href="#Q：Vue的inject和provide是什么？" class="headerlink" title="Q：Vue的inject和provide是什么？"></a>Q：Vue的inject和provide是什么？</h5><h5 id="Q：怎么利用Vue来实现高阶组件，slot怎么办"><a href="#Q：怎么利用Vue来实现高阶组件，slot怎么办" class="headerlink" title="Q：怎么利用Vue来实现高阶组件，slot怎么办"></a>Q：怎么利用Vue来实现高阶组件，slot怎么办</h5><h5 id="Q：依赖收集问题"><a href="#Q：依赖收集问题" class="headerlink" title="Q：依赖收集问题"></a>Q：依赖收集问题</h5><pre><code>* Vue的所有属性都是Observable的
+* @computed所能自我计算的，只有他所监控的（autorun）
+</code></pre><h5 id="Q：Vue模块加载的失败处理（白屏等情况）"><a href="#Q：Vue模块加载的失败处理（白屏等情况）" class="headerlink" title="Q：Vue模块加载的失败处理（白屏等情况）"></a>Q：Vue模块加载的失败处理（白屏等情况）</h5><h5 id="Q：Vue双向绑定的实现"><a href="#Q：Vue双向绑定的实现" class="headerlink" title="Q：Vue双向绑定的实现"></a>Q：Vue双向绑定的实现</h5><h5 id="Q：Vue-diff实现（1-0，2-0），与-react-diff的区别"><a href="#Q：Vue-diff实现（1-0，2-0），与-react-diff的区别" class="headerlink" title="Q：Vue diff实现（1.0，2.0），与 react diff的区别"></a>Q：Vue diff实现（1.0，2.0），与 react diff的区别</h5><h5 id="Q：Vue如何实现的一个插件"><a href="#Q：Vue如何实现的一个插件" class="headerlink" title="Q：Vue如何实现的一个插件"></a>Q：Vue如何实现的一个插件</h5><h5 id="Q：如果有多个插件怎么挂载方式便于开发"><a href="#Q：如果有多个插件怎么挂载方式便于开发" class="headerlink" title="Q：如果有多个插件怎么挂载方式便于开发"></a>Q：如果有多个插件怎么挂载方式便于开发</h5><h5 id="Q：如何封装一个component，在不使用template的情况下输出一下dom结构（vue）"><a href="#Q：如何封装一个component，在不使用template的情况下输出一下dom结构（vue）" class="headerlink" title="Q：如何封装一个component，在不使用template的情况下输出一下dom结构（vue）"></a>Q：如何封装一个component，在不使用template的情况下输出一下dom结构（vue）</h5><h5 id="Vue动画组件"><a href="#Vue动画组件" class="headerlink" title="Vue动画组件"></a>Vue动画组件</h5><h3 id="Jquery特点和源码（找总结不错的博客看）"><a href="#Jquery特点和源码（找总结不错的博客看）" class="headerlink" title="Jquery特点和源码（找总结不错的博客看）"></a>Jquery特点和源码（找总结不错的博客看）</h3><h5 id="核心架构"><a href="#核心架构" class="headerlink" title="核心架构"></a>核心架构</h5><pre><code>事件委托
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(document).on(<span class="string">"click"</span>, <span class="string">"td"</span>, <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">　　    $(this).toggleClass(<span class="string">"click"</span>);</span><br><span class="line">　　 &#125;)</span><br></pre></td></tr></table></figure>
+<pre><code>利用事件冒泡 做事件委托 不需要每个子元素都调用
+  插件机制
+  优点
+    选择器id选择器的性能最高
+    伪类选择器的性能最差
+    链式调用速度快于非链式调用
+  优化
+    循环时减少对dom的操作
+    e.g.:
+        将dom对象定义在循环外面  或者需要插入的内容用变量存储在添加到dom中
+    Dom对象的缓存
+</code></pre><h3 id="小程序web-view和网页之间的通信怎么做？token怎么存储"><a href="#小程序web-view和网页之间的通信怎么做？token怎么存储" class="headerlink" title="小程序web-view和网页之间的通信怎么做？token怎么存储"></a>小程序web-view和网页之间的通信怎么做？token怎么存储</h3><h3 id="通常面试流程及准备"><a href="#通常面试流程及准备" class="headerlink" title="通常面试流程及准备"></a>通常面试流程及准备</h3><h5 id="Jd描述分析"><a href="#Jd描述分析" class="headerlink" title="Jd描述分析"></a>Jd描述分析</h5><h5 id="业务分析或实战模拟"><a href="#业务分析或实战模拟" class="headerlink" title="业务分析或实战模拟"></a>业务分析或实战模拟</h5><h5 id="技术栈准备"><a href="#技术栈准备" class="headerlink" title="技术栈准备"></a>技术栈准备</h5><pre><code>Jquery
 Vue/react/anglur  遇到的问题 解决方法
 构建工具 sass web pack npm 
-</code></pre><h2 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h2><pre><code>简历
+</code></pre><h5 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h5><pre><code>简历
     公司岗位 技术栈职责 
     公司项目的优化方案 攻克的技术难点总结
     开源项目，github和说明 （可以参与到开源项目中）
@@ -486,18 +508,18 @@ Vue/react/anglur  遇到的问题 解决方法
     豁达、自信适度发挥
     陈述引导面试官面试自己熟悉的相关知识 
     平时喜欢逛一些不错的技术博客 看别人的总结等
-</code></pre><h3 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h3><h2 id="模拟一面-基础"><a href="#模拟一面-基础" class="headerlink" title="模拟一面 基础"></a>模拟一面 基础</h2><pre><code>Css盒模型 dom事件类
+</code></pre><h3 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h3><h5 id="模拟一面-基础"><a href="#模拟一面-基础" class="headerlink" title="模拟一面 基础"></a>模拟一面 基础</h5><pre><code>Css盒模型 dom事件类
 http协议类 原型链类
 面向对象类 通信类
 前端安全类 前端算法类
-</code></pre><h2 id="模拟二面-项目负责人"><a href="#模拟二面-项目负责人" class="headerlink" title="模拟二面 项目负责人"></a>模拟二面 项目负责人</h2><pre><code>渲染机制
+</code></pre><h5 id="模拟二面-项目负责人"><a href="#模拟二面-项目负责人" class="headerlink" title="模拟二面 项目负责人"></a>模拟二面 项目负责人</h5><pre><code>渲染机制
 Js运行机制
 页面性能
 错误监控
-</code></pre><h2 id="模拟三面-团队负责人"><a href="#模拟三面-团队负责人" class="headerlink" title="模拟三面  团队负责人"></a>模拟三面  团队负责人</h2><pre><code>业务能力
+</code></pre><h5 id="模拟三面-团队负责人"><a href="#模拟三面-团队负责人" class="headerlink" title="模拟三面  团队负责人"></a>模拟三面  团队负责人</h5><pre><code>业务能力
 团队协作能力
 带人能力
-</code></pre><h2 id="模拟终面-hr"><a href="#模拟终面-hr" class="headerlink" title="模拟终面 hr"></a>模拟终面 hr</h2><pre><code>职业竞争力 你的优势在哪里 人家为什么要你
+</code></pre><h5 id="模拟终面-hr"><a href="#模拟终面-hr" class="headerlink" title="模拟终面 hr"></a>模拟终面 hr</h5><pre><code>职业竞争力 你的优势在哪里 人家为什么要你
 职业规划
 </code></pre><h3 id="题目演练"><a href="#题目演练" class="headerlink" title="题目演练"></a>题目演练</h3><h3 id="知识梳理"><a href="#知识梳理" class="headerlink" title="知识梳理"></a>知识梳理</h3><pre><code>项目架构能力
 项目把控能力
