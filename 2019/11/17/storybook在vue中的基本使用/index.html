@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="在开发过程中我们时常需要抽离很多公共组件出来，于是需要一个方式或者平台将组件以及他们的用法展示出来。Storybook是UI组件的开发环境。它允许您浏览组件库，查看每个组件的不同状态，以及交互式开发和测试组件。 官方解释’故事’：  故事书是故事的集合。每个故事代表组件的单个视觉状态,技术上讲，一个故事是一个函数，它返回一些可以被渲染到屏幕上的东西。 step 1: 安装依赖a、添加 @story">
+<meta property="og:type" content="article">
+<meta property="og:title" content="storybook在vue中的基本使用">
+<meta property="og:url" content="https://justfeeling.site/2019/11/17/storybook在vue中的基本使用/index.html">
+<meta property="og:site_name" content="justFeeling">
+<meta property="og:description" content="在开发过程中我们时常需要抽离很多公共组件出来，于是需要一个方式或者平台将组件以及他们的用法展示出来。Storybook是UI组件的开发环境。它允许您浏览组件库，查看每个组件的不同状态，以及交互式开发和测试组件。 官方解释’故事’：  故事书是故事的集合。每个故事代表组件的单个视觉状态,技术上讲，一个故事是一个函数，它返回一些可以被渲染到屏幕上的东西。 step 1: 安装依赖a、添加 @story">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-21T04:08:02.595Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="storybook在vue中的基本使用">
+<meta name="twitter:description" content="在开发过程中我们时常需要抽离很多公共组件出来，于是需要一个方式或者平台将组件以及他们的用法展示出来。Storybook是UI组件的开发环境。它允许您浏览组件库，查看每个组件的不同状态，以及交互式开发和测试组件。 官方解释’故事’：  故事书是故事的集合。每个故事代表组件的单个视觉状态,技术上讲，一个故事是一个函数，它返回一些可以被渲染到屏幕上的东西。 step 1: 安装依赖a、添加 @story">
+
+
+
+
+
+
+  <link rel="canonical" href="https://justfeeling.site/2019/11/17/storybook在vue中的基本使用/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>storybook在vue中的基本使用 | justFeeling</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">justFeeling</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">just feeling only you</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://justfeeling.site/2019/11/17/storybook在vue中的基本使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="feeling">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="justFeeling">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">storybook在vue中的基本使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-17 13:44:54" itemprop="dateCreated datePublished" datetime="2019-11-17T13:44:54+08:00">2019-11-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-11-21 12:08:02" itemprop="dateModified" datetime="2019-11-21T12:08:02+08:00">2019-11-21</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在开发过程中我们时常需要抽离很多公共组件出来，于是需要一个方式或者平台将组件以及他们的用法展示出来。<br>Storybook是UI组件的开发环境。它允许您浏览组件库，查看每个组件的不同状态，以及交互式开发和测试组件。</p>
+<font face="黑体" color="#000">官方解释’故事’：</font>
+
+<p>故事书是故事的集合。每个故事代表组件的单个视觉状态,技术上讲，一个故事是一个函数，它返回一些可以被渲染到屏幕上的东西。</p>
+<h2 id="step-1-安装依赖"><a href="#step-1-安装依赖" class="headerlink" title="step 1: 安装依赖"></a>step 1: 安装依赖</h2><p>a、添加 @storybook/vue 到你的项目中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i @storybook/vue --save-dev</span><br></pre></td></tr></table></figure></p>
+<p>b、添加 @storybook相关依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install vue --save</span><br><span class="line">npm install vue-loader vue-template-compiler @babel/core babel-loader babel-preset-vue --save-dev</span><br></pre></td></tr></table></figure></p>
+<h2 id="step-2-新增一个npm脚本"><a href="#step-2-新增一个npm脚本" class="headerlink" title="step 2: 新增一个npm脚本"></a>step 2: 新增一个npm脚本</h2><p>在package.json中新增一个 NPM脚本用以启动storybook</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;script&quot;: &#123;</span><br><span class="line">        &quot;storybook&quot;: &quot;start-storybook&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="step-3-创建storybook相关的配置文件"><a href="#step-3-创建storybook相关的配置文件" class="headerlink" title="step 3: 创建storybook相关的配置文件"></a>step 3: 创建storybook相关的配置文件</h2><p>一般建议storybook配置文件夹(.storybook)放在最外层，当然你也可以放到任意你想放的位置。<br>对于storybook的基本配置，唯一需要做的是告诉storybook在哪里去找到故事，所以新建一个config文件，内容为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123; configure &#125; from &apos;@storybook/vue&apos;;</span><br><span class="line"></span><br><span class="line">//自动引入src目录下以.stories.js结尾的所有文件</span><br><span class="line">configure(require.context(&apos;../src&apos;, true, /\.stories\.js$/), module);</span><br></pre></td></tr></table></figure>
+<p>您可能正在使用全局组件或vue插件（例如vuex），在这种情况下，您需要在config.js文件中注册它们<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import &#123; configure &#125; from &apos;@storybook/vue&apos;;</span><br><span class="line"></span><br><span class="line">import Vue from &apos;vue&apos;;</span><br><span class="line"></span><br><span class="line">// Import Vue plugins</span><br><span class="line">import Vuex from &apos;vuex&apos;;</span><br><span class="line"></span><br><span class="line">// Import your global components.</span><br><span class="line">import Mybutton from &apos;../src/stories/Button.vue&apos;;</span><br><span class="line"></span><br><span class="line">// Install Vue plugins.</span><br><span class="line">Vue.use(Vuex);</span><br><span class="line"></span><br><span class="line">// Register global components.</span><br><span class="line">Vue.component(&apos;my-button&apos;, Mybutton);</span><br><span class="line"></span><br><span class="line">configure(require.context(&apos;../src&apos;, true, /\.stories\.js$/), module);</span><br></pre></td></tr></table></figure></p>
+<p>上面示例注册了您的自定义Button.vue组件，安装了Vuex插件，并加载了../src/index.stories.js中定义的Storybook故事。 在调用configure（）之前，应注册所有自定义组件和Vue插件</p>
+<h2 id="step-4-创建你的stories"><a href="#step-4-创建你的stories" class="headerlink" title="step 4: 创建你的stories"></a>step 4: 创建你的stories</h2><p>现在创建一个存放story的./stories目录，并创建你的第一个故事(stories/index.js)</p>
+<font face="黑体" color="#000">CSF(Component Story Format)创建story：</font>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;;</span><br><span class="line">import MyButton from &apos;./Button.vue&apos;;</span><br><span class="line"></span><br><span class="line">export default &#123; title: &apos;Button&apos; &#125;;</span><br><span class="line">export const withText = () =&gt; &apos;&lt;my-button&gt;with text&lt;/my-button&gt;&apos;;</span><br><span class="line">export const withEmoji = () =&gt; &apos;&lt;my-button&gt;😀 😎 👍 💯&lt;/my-button&gt;&apos;;</span><br><span class="line">export const asAComponent = () =&gt; (&#123;</span><br><span class="line">  components: &#123; MyButton &#125;,</span><br><span class="line">  template: &apos;&lt;my-button :rounded=&quot;true&quot;&gt;rounded&lt;/my-button&gt;&apos;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<font face="黑体" color="#000">storiesOf API 创建：</font>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import Vue from &quot;vue&quot;;</span><br><span class="line">import &#123; storiesOf &#125; from &apos;@storybook/vue&apos;</span><br><span class="line">import HelloWorld from &quot;@/components/HelloWorld.vue&quot;;</span><br><span class="line"></span><br><span class="line">//storiesOf API 5.2以后就不建议使用 </span><br><span class="line">storiesOf(&quot;Hello&quot;, module).add(&quot;HelloWorld&quot;, () =&gt; (&#123;</span><br><span class="line">	components: &#123; HelloWorld &#125;,</span><br><span class="line">	template: `&lt;hello-world/&gt;`</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<h2 id="导出：将故事书导出为静态应用"><a href="#导出：将故事书导出为静态应用" class="headerlink" title="导出：将故事书导出为静态应用"></a>导出：将故事书导出为静态应用</h2><p>Storybook附带有一个工具，可将您的Storybook导出到静态Web应用。然后可以将其部署到GitHub页面或任何静态托管服务上。<br>只需要简单的添加下面运行脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;build-storybook&quot;: &quot;build-storybook -c .storybook -o .out&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="addon-组件使用"><a href="#addon-组件使用" class="headerlink" title="addon 组件使用"></a>addon 组件使用</h2>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/10/iconfont在vue中的使用/" rel="next" title="iconfont在vue中的使用(未完待续...)">
+                <i class="fa fa-chevron-left"></i> iconfont在vue中的使用(未完待续...)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/19/为什么要是用语言属性？-译/" rel="prev" title="为什么要用语言属性(lang)？[译]">
+                为什么要用语言属性(lang)？[译] <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">feeling</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#step-1-安装依赖"><span class="nav-number">1.</span> <span class="nav-text">step 1: 安装依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step-2-新增一个npm脚本"><span class="nav-number">2.</span> <span class="nav-text">step 2: 新增一个npm脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step-3-创建storybook相关的配置文件"><span class="nav-number">3.</span> <span class="nav-text">step 3: 创建storybook相关的配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step-4-创建你的stories"><span class="nav-number">4.</span> <span class="nav-text">step 4: 创建你的stories</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导出：将故事书导出为静态应用"><span class="nav-number">5.</span> <span class="nav-text">导出：将故事书导出为静态应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#addon-组件使用"><span class="nav-number">6.</span> <span class="nav-text">addon 组件使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">feeling</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
