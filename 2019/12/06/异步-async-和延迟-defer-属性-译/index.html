@@ -108,27 +108,29 @@
 
 
 
-  <meta name="description" content="flutter介绍Flutter 是 Google推出并开源的移动应用开发框架，主打跨平台、高保真、高性能。开发者可以通过 Dart语言开发 App，一套代码同时运行在 iOS 和 Android平台。 Flutter提供了丰富的组件、接口，开发者可以很快地为 Flutter添加 native扩展。同时 Flutter还使用 Native引擎渲染视图，这无疑能为用户提供良好的体验 官方网站：htt">
+  <meta name="description" content="目前script标签对async和defer属性的已经有非常不错的支持，所以是时候更详细的了解他们的具体的工作了。 图例说明 纯script首先我们来看没有定义任何属性的script标签。 HTML文件将被解析，直到脚本文件被点击为止，同时将停止解析，发起请求去提取script文件（如果是外部文件）。下载完成后将在恢复解析之前执行该脚本。 设置async的script设置async属性会在HTML">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初识flutter">
-<meta property="og:url" content="https://justfeeling.fun/2019/01/08/初识flutter/index.html">
+<meta property="og:title" content="异步(async)和延迟(defer)属性-[译]">
+<meta property="og:url" content="https://justfeeling.fun/2019/12/06/异步-async-和延迟-defer-属性-译/index.html">
 <meta property="og:site_name" content="justFeeling">
-<meta property="og:description" content="flutter介绍Flutter 是 Google推出并开源的移动应用开发框架，主打跨平台、高保真、高性能。开发者可以通过 Dart语言开发 App，一套代码同时运行在 iOS 和 Android平台。 Flutter提供了丰富的组件、接口，开发者可以很快地为 Flutter添加 native扩展。同时 Flutter还使用 Native引擎渲染视图，这无疑能为用户提供良好的体验 官方网站：htt">
+<meta property="og:description" content="目前script标签对async和defer属性的已经有非常不错的支持，所以是时候更详细的了解他们的具体的工作了。 图例说明 纯script首先我们来看没有定义任何属性的script标签。 HTML文件将被解析，直到脚本文件被点击为止，同时将停止解析，发起请求去提取script文件（如果是外部文件）。下载完成后将在恢复解析之前执行该脚本。 设置async的script设置async属性会在HTML">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://justfeeling.fun/2019/01/08/img/flutter-framework.png">
-<meta property="og:image" content="https://justfeeling.fun/2019/01/08/img/flutter-app.png">
-<meta property="og:updated_time" content="2019-03-14T08:33:41.415Z">
+<meta property="og:image" content="https://justfeeling.fun/2019/12/06/img/async_defer_legend.svg">
+<meta property="og:image" content="https://justfeeling.fun/2019/12/06/img/async_defer_1.svg">
+<meta property="og:image" content="https://justfeeling.fun/2019/12/06/img/async_defer_2.svg">
+<meta property="og:image" content="https://justfeeling.fun/2019/12/06/img/async_defer_3.svg">
+<meta property="og:updated_time" content="2019-12-06T06:26:33.149Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初识flutter">
-<meta name="twitter:description" content="flutter介绍Flutter 是 Google推出并开源的移动应用开发框架，主打跨平台、高保真、高性能。开发者可以通过 Dart语言开发 App，一套代码同时运行在 iOS 和 Android平台。 Flutter提供了丰富的组件、接口，开发者可以很快地为 Flutter添加 native扩展。同时 Flutter还使用 Native引擎渲染视图，这无疑能为用户提供良好的体验 官方网站：htt">
-<meta name="twitter:image" content="https://justfeeling.fun/2019/01/08/img/flutter-framework.png">
+<meta name="twitter:title" content="异步(async)和延迟(defer)属性-[译]">
+<meta name="twitter:description" content="目前script标签对async和defer属性的已经有非常不错的支持，所以是时候更详细的了解他们的具体的工作了。 图例说明 纯script首先我们来看没有定义任何属性的script标签。 HTML文件将被解析，直到脚本文件被点击为止，同时将停止解析，发起请求去提取script文件（如果是外部文件）。下载完成后将在恢复解析之前执行该脚本。 设置async的script设置async属性会在HTML">
+<meta name="twitter:image" content="https://justfeeling.fun/2019/12/06/img/async_defer_legend.svg">
 
 
 
 
 
 
-  <link rel="canonical" href="https://justfeeling.fun/2019/01/08/初识flutter/"/>
+  <link rel="canonical" href="https://justfeeling.fun/2019/12/06/异步-async-和延迟-defer-属性-译/"/>
 
 
 
@@ -138,7 +140,7 @@
   };
 </script>
 
-  <title>初识flutter | justFeeling</title>
+  <title>异步(async)和延迟(defer)属性-[译] | justFeeling</title>
   
 
 
@@ -287,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://justfeeling.fun/2019/01/08/初识flutter/">
+    <link itemprop="mainEntityOfPage" href="https://justfeeling.fun/2019/12/06/异步-async-和延迟-defer-属性-译/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="feeling">
@@ -304,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">初识flutter
+          <h1 class="post-title" itemprop="name headline">异步(async)和延迟(defer)属性-[译]
               
             
           </h1>
@@ -329,24 +331,12 @@
                 
               
 
-              <time title="创建时间：2019-01-08 11:50:38" itemprop="dateCreated datePublished" datetime="2019-01-08T11:50:38+08:00">2019-01-08</time>
+              <time title="创建时间：2019-12-06 11:00:35 / 修改时间：14:26:33" itemprop="dateCreated datePublished" datetime="2019-12-06T11:00:35+08:00">2019-12-06</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-14 16:33:41" itemprop="dateModified" datetime="2019-03-14T16:33:41+08:00">2019-03-14</time>
               
             
           </span>
@@ -379,12 +369,18 @@
       
 
       
-        <h2 id="flutter介绍"><a href="#flutter介绍" class="headerlink" title="flutter介绍"></a>flutter介绍</h2><p>Flutter 是 Google推出并开源的移动应用开发框架，主打跨平台、高保真、高性能。开发者可以通过 Dart语言开发 App，一套代码同时运行在 iOS 和 Android平台。 Flutter提供了丰富的组件、接口，开发者可以很快地为 Flutter添加 native扩展。同时 Flutter还使用 Native引擎渲染视图，这无疑能为用户提供良好的体验</p>
-<h6 id="官方网站：https-flutter-io"><a href="#官方网站：https-flutter-io" class="headerlink" title="官方网站：https://flutter.io/"></a>官方网站：<a href="https://flutter.io/" target="_blank" rel="noopener">https://flutter.io/</a></h6><h6 id="中文网：https-flutterchina-club"><a href="#中文网：https-flutterchina-club" class="headerlink" title="中文网：https://flutterchina.club/"></a>中文网：<a href="https://flutterchina.club/" target="_blank" rel="noopener">https://flutterchina.club/</a></h6><h6 id="布局模型：https-flutter-dev-docs-development-ui-widgets-layout"><a href="#布局模型：https-flutter-dev-docs-development-ui-widgets-layout" class="headerlink" title="布局模型：https://flutter.dev/docs/development/ui/widgets/layout"></a>布局模型：<a href="https://flutter.dev/docs/development/ui/widgets/layout" target="_blank" rel="noopener">https://flutter.dev/docs/development/ui/widgets/layout</a></h6><h3 id="dart语言"><a href="#dart语言" class="headerlink" title="dart语言"></a>dart语言</h3><p><a href="https://mp.weixin.qq.com/s/mtm9PKv2G_hSgbvXTbQtTA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/mtm9PKv2G_hSgbvXTbQtTA</a></p>
-<h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1:下载flutter sdk :https://flutter.io/docs/get-started/install</span><br><span class="line">2: vscode中打开命令行 运行run flutter doctor 可看到所需要安装的环境以及已安装情况</span><br><span class="line">3: 安装好所需要的安卓或者ios所需环境 </span><br><span class="line">4: 以xcode为例 运行：open -a Simulator 打开模拟器</span><br><span class="line">（xcode的安装一不小心就会踩坑 所以建议最好直接在appStore中安装）同时安装xcode需要安装cocoapods初始化的时候注意切换ruby镜像不然跑死都跑不完</span><br></pre></td></tr></table></figure>
-<h2 id="创建第一个flutter-App"><a href="#创建第一个flutter-App" class="headerlink" title="创建第一个flutter App"></a>创建第一个flutter App</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 应用主入口 --&gt;</span><br><span class="line">void main() &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="主要知识点"><a href="#主要知识点" class="headerlink" title="主要知识点"></a>主要知识点</h2><p>flutter架构<br><img src="../img/flutter-framework.png" alt="flutter-framework"></p>
-<p>StateLessWidget?<br>StatefulWidget?<br><img src="../img/flutter-app.png" alt="avatar"></p>
+        <p>目前script标签对async和defer属性的已经有非常不错的支持，所以是时候更详细的了解他们的具体的工作了。</p>
+<h3 id="图例说明"><a href="#图例说明" class="headerlink" title="图例说明"></a>图例说明</h3><p><img src="../img/async_defer_legend.svg" alt="legend"></p>
+<h3 id="纯script"><a href="#纯script" class="headerlink" title="纯script"></a>纯script</h3><p>首先我们来看没有定义任何属性的script标签。 HTML文件将被解析，直到脚本文件被点击为止，同时将停止解析，发起请求去提取script文件（如果是外部文件）。下载完成后将在恢复解析之前执行该脚本。<br><img src="../img/async_defer_1.svg" alt="执行图"></p>
+<h3 id="设置async的script"><a href="#设置async的script" class="headerlink" title="设置async的script"></a>设置async的script</h3><p>设置async属性会在HTML解析期间下载script文件，并在完成下载后暂停HTML解析器以执行该文件。<br><img src="../img/async_defer_2.svg" alt="执行图"></p>
+<h3 id="设置defer的script"><a href="#设置defer的script" class="headerlink" title="设置defer的script"></a>设置defer的script</h3><p>设置defer属性会在HTML解析完成之后下载script，并在下载完成后执行该文件，同时设置了defer的脚本会按照他们在文档里面出现的顺序执行。<br><img src="../img/async_defer_3.svg" alt="执行图"></p>
+<h3 id="我们应该用哪一个？"><a href="#我们应该用哪一个？" class="headerlink" title="我们应该用哪一个？"></a>我们应该用哪一个？</h3><p>通常我们会尽可能使用async，然后是延迟属性defer，其次才是不使用。以下是一般使用规则：</p>
+<ul>
+<li>如果脚本文件是独立的模块化的，且不依赖其他的脚本文件时用async；</li>
+<li>如果该脚本依赖于另一个脚本或被另一个脚本依赖，则使用defer；</li>
+<li>如果该脚本很小，并且由异步脚本所依赖，则请使用一个内联脚本，该脚本应在异步脚本上方不放置任何属性。</li>
+</ul>
+<h3 id="兼容"><a href="#兼容" class="headerlink" title="兼容"></a>兼容</h3><p>IE9及更低版本的defer实施中存在一些非常糟糕的错误，因此无法保证执行顺序。如果您需要兼容 &lt;= IE9，我建议完全不要使用defer，并且如果执行顺序很重要，则使用未设置属性的script。</p>
 
       
     </div>
@@ -412,8 +408,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/13/felx布局学习/" rel="next" title="felx布局学习">
-                <i class="fa fa-chevron-left"></i> felx布局学习
+              <a href="/2019/11/19/为什么要是用语言属性？-译/" rel="next" title="为什么要用语言属性(lang)？[译]">
+                <i class="fa fa-chevron-left"></i> 为什么要用语言属性(lang)？[译]
               </a>
             
           </div>
@@ -421,10 +417,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/17/storybook在vue中的基本使用/" rel="prev" title="storybook在vue中的基本使用">
-                storybook在vue中的基本使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -534,7 +526,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#flutter介绍"><span class="nav-number">1.</span> <span class="nav-text">flutter介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#官方网站：https-flutter-io"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">官方网站：https://flutter.io/</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#中文网：https-flutterchina-club"><span class="nav-number">1.0.0.0.2.</span> <span class="nav-text">中文网：https://flutterchina.club/</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#布局模型：https-flutter-dev-docs-development-ui-widgets-layout"><span class="nav-number">1.0.0.0.3.</span> <span class="nav-text">布局模型：https://flutter.dev/docs/development/ui/widgets/layout</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dart语言"><span class="nav-number">1.1.</span> <span class="nav-text">dart语言</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境安装"><span class="nav-number">2.</span> <span class="nav-text">环境安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建第一个flutter-App"><span class="nav-number">3.</span> <span class="nav-text">创建第一个flutter App</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要知识点"><span class="nav-number">4.</span> <span class="nav-text">主要知识点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#图例说明"><span class="nav-number">1.</span> <span class="nav-text">图例说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#纯script"><span class="nav-number">2.</span> <span class="nav-text">纯script</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置async的script"><span class="nav-number">3.</span> <span class="nav-text">设置async的script</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置defer的script"><span class="nav-number">4.</span> <span class="nav-text">设置defer的script</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们应该用哪一个？"><span class="nav-number">5.</span> <span class="nav-text">我们应该用哪一个？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#兼容"><span class="nav-number">6.</span> <span class="nav-text">兼容</span></a></li></ol></div>
             
 
           </div>
