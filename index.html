@@ -495,7 +495,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-12-06 16:53:06" itemprop="dateModified" datetime="2019-12-06T16:53:06+08:00">2019-12-06</time>
+                <time title="修改时间：2019-12-06 18:31:01" itemprop="dateModified" datetime="2019-12-06T18:31:01+08:00">2019-12-06</time>
               
             
           </span>
@@ -539,7 +539,7 @@
 <h2 id="详细解答"><a href="#详细解答" class="headerlink" title="详细解答"></a>详细解答</h2><p>在这里我们列出了目前语言信息有用的几种方式，但是，随着规范和浏览器的更新发展，将来可能会有许多其他的语言信息应用程序。</p>
 <p><font face="黑体" color="#000"> 样式页面</font><br>语言属性(lang)让你可以按语言更改内容的样式。更多使用信息，请参见：<a href="https://www.w3.org/International/questions/qa-css-lang" target="_blank" rel="noopener">使用lang属性设置样式</a>。<br>例如，字体或行距可能需要更改以适应不同的字母，样式生成的引号可能需要根据语言而不同，强调样式可能需要以语言相关的方式表达，等等。<br>以下示例展示了如何为页面中的嵌入阿拉伯文本设置特定字体。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">  font-family: &quot;Palatino Linotype&quot;, &quot;Book Antiqua&quot;, Palatino, serif;</span><br><span class="line">&#125;</span><br><span class="line">:lang(ar) &#123;</span><br><span class="line">  font-family: &quot;Traditional Arabic&quot;, &quot;Al Bayan&quot;, serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>另外一个特例则是连字符，连字符规则非常依赖于语言的。在<a href="https://www.w3.org/TR/css-text-3/#hyphenation" target="_blank" rel="noopener">CSS中的连字符属性的描述</a>(在撰写本文时，浏览器才开始采用它)文中表示“正确的自动的连字符需要一直合适的连字符资源去链接被破坏的语言文本。因此，浏览器仅需要自动连接开发者设置了语言的文本（比如通过HTML的lang属性或者XML的xml:lang设置的文本），且具有自己的合适的连字符资源。”<br>其他受语言影响的排版和布局功能包括换行、对齐和大小写转换，以及随着规范的发展而出现的更多功能。</p>
-<p><font face="黑体" color="#000"> 字体选择</font><br>浏览器可以（并且会）使用语言信息来选择适合的字体来显示，从而改善页面的整体用户体验。<br>比如，以统一码编码的网页，简体中文、繁体中文、日文及韩文的文字可能共用一个编码，但是这些语言的使用者希望使用的字形在每个语言的细节上都有所不同。在开发者没有明确设定字体样式的时候，一些浏览器会自动根据文本语言内容设置合适的字体样式。下图展示了在Firefox或IE等浏览器中设置不同的语言属性（lang）值的不同样式。<br><img src="//justfeeling.fun/2019/11/19/为什么要是用语言属性？-译/example.png" alt="avatar"></p>
+<p><font face="黑体" color="#000"> 字体选择</font><br>浏览器可以（并且会）使用语言信息来选择适合的字体来显示，从而改善页面的整体用户体验。<br>比如，以统一码编码的网页，简体中文、繁体中文、日文及韩文的文字可能共用一个编码，但是这些语言的使用者希望使用的字形在每个语言的细节上都有所不同。在开发者没有明确设定字体样式的时候，一些浏览器会自动根据文本语言内容设置合适的字体样式。下图展示了在Firefox或IE等浏览器中设置不同的语言属性（lang）值的不同样式。<br><img src="//justfeeling.fun/2019/11/19/为什么要是用语言属性？-译/img/example.png" alt="avatar"></p>
 <p><font face="黑体" color="#000"> 搜索 </font><br>尽管主要搜索引擎通常使用自动语言检测来识别资源的语言，但是可以使用页面内部标记根据用户的语言偏好来提高搜索结果的质量</p>
 <p><font face="黑体" color="#000"> 拼写和语法检查器 </font><br>编辑器可以根据当前内容的语言调整拼写和语法检查，或者忽略不在拼写检查器语言中的内容。这可以大大提高检查拼写时的效率。<br>浏览器最近也开始允许用户检查他们在表单或内容可编辑元素（contenteditable）中键入的文本的拼写，考虑到有关内容语言的信息的浏览器可以提供更有效的用户体验</p>
 <p><font face="黑体" color="#000"> 翻译 </font><br>翻译工具可以根据设置的语言属性识别特定语言中文本的页面或部分，并自动调整工作流程或保护文本不受翻译工具中的更改。</p>
